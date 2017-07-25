@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1 @click="showMsg(msg)">{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
       <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
@@ -20,15 +20,25 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'hello',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+<script lang="ts">
+  import Vue from 'vue'
+  import Component from 'vue-class-component'
+  @Component
+  export default class Hello extends Vue {
+    msg: string = 'this is a typescript project now';
+    showMsg(msg : number){
+        console.log(msg)
     }
   }
-}
+  // export default{
+  //   methods:{
+  //       showMsg(msg : string){
+  //           console.log(1)
+  //           return msg;
+  //       }
+  //   }
+  // }
+  
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
